@@ -547,39 +547,4 @@
 
 //console.log(fn(num));
 
-//------------------
-
-let o = {
-  key: "value",
-  asd: "asd",
-  dsa: 132,
-  qwe: "asqqs",
-};
-
-//const asd = o.asd
-//const dsa = o.dsa
-//const qwe = o.qwe
-//console.log(qwe);
-
-const { asd, dsa, qwe } = o;
-
-console.log({ asd, dsa, qwe });
-console.log(asd);
-console.log(dsa);
-console.log(qwe);
-
-let obj = {
-  key: "value",
-  asd: "asd",
-  dsa: 132,
-  qwe: "asqqs",
-	cxz:true,
-	aaa: 333
-};
-
-const { asd: aaa, dsa:ddd, cxz, aaa:bbb } = obj;
-console.log(aaa);
-console.log(ddd); 
-console.log(cxz);
-console.log(bbb);
 
