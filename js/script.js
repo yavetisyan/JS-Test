@@ -548,22 +548,38 @@
 //console.log(fn(num));
 
 //------------------
+
+let o = {
+  key: "value",
+  asd: "asd",
+  dsa: 132,
+  qwe: "asqqs",
+};
+
+//const asd = o.asd
+//const dsa = o.dsa
+//const qwe = o.qwe
+//console.log(qwe);
+
+const { asd, dsa, qwe } = o;
+
+console.log({ asd, dsa, qwe });
+console.log(asd);
+console.log(dsa);
+console.log(qwe);
+
 let obj = {
-	asd:'asd'
-}
+  key: "value",
+  asd: "asd",
+  dsa: 132,
+  qwe: "asqqs",
+	cxz:true,
+	aaa: 333
+};
 
-let m1 = new Map([
-	[1,'132'],
-	['asdf',false],
-	[obj, [1,2,3,4]],
-	[{},{}],
-]);
+const { asd: aaa, dsa:ddd, cxz, aaa:bbb } = obj;
+console.log(aaa);
+console.log(ddd); 
+console.log(cxz);
+console.log(bbb);
 
-console.log(m1);
-
-let m2 = new Map(m1.entries())
-
-console.log(m2);
-console.log(m1.get(obj) === m2.get(obj)); // true
-
-// -------------------
