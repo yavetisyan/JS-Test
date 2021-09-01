@@ -1,4 +1,4 @@
-let div =document.getElementsByTagName('div');
+let div = document.getElementsByTagName("div");
 console.log(div);
 
 //let name= document.getElementsByName('email')
@@ -7,7 +7,7 @@ console.log(div);
 //let id = document.getElementById('div5')
 
 //console.log(id);
- 
+
 //let clas= document.getElementsByClassName('asd')
 //console.log(clas);
 
@@ -23,28 +23,28 @@ console.log(div);
 //let attr = document.querySelectorAll('[attr1]')
 //console.log(attr);
 
-
 //let name1 = document.getElementsByName('checkbox');
 //console.log(name1);
 
-let id = document.getElementById('div5');
+let id = document.getElementById("div5");
 console.log(id);
 
-id.style.backgroundColor = 'red';
+id.style.backgroundColor = "red";
 
-let a = document.querySelector('div');
+let a = document.querySelector(".asd");
 
 console.log(a);
 
+//let attr  =document,querySelectorAll
+id.addEventListener("click", function () {
+  a.style.backgroundColor = "aqua";
+});
 
+let newDiv =document.createElement('span');
+let textNode = document.createTextNode('mi ban lic')
 
+newDiv.classList.add('miban')
+document.body.append(newDiv)
 
-a.onclick(function(){
-
-
-	if(this.style.backgroundColor === 'none'){
-		this.style.backgroundColor = 'aqua';
-	} 
-	
-
-})
+ newDiv.appendChild('skizbna')
+//newDiv.append('verjna')
