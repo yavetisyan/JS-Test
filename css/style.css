@@ -1,7 +1,41 @@
-div{
-	width: 100px;
-	height: 50px;
-	border: 1px solid #000;
-	margin-bottom: 10px;
-	text-align: center;
+div {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#div3 {
+  background-color: blue;
+  color: #fff;
+  padding-top: 30px;
+}
+
+#div5 .asd {
+  background-color: brown;
+}
+
+div:nth-child(2) {
+  background-color: crimson;
+}
+#div8 {
+  animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #001f3f;
+  }
+  10% {
+    background-color: cyan;
+  }
+  100% {
+    background-color: #ff4136;
+  }
+}
+
+
+[]{
+	background-color:darkcyan
 }

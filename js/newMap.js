@@ -1,3 +1,10 @@
+let objValues = Object.values(people);
+console.log(objValues);
+
+
+for (let i = 0; i < objValues.length; i++) {
+	if(typeof objValues[i] ==='object'){
+		let name = objValues[i].name
 let m = new Map();
 
 m.set("key", "value");
