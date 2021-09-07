@@ -547,4 +547,53 @@
 
 //console.log(fn(num));
 
+function decorator(fn) {
+  function asd(...args) {
+
+    if (!asd.count) {
+      asd.count = 0;
+    }
+    asd.count++;
+    return fn.call(this, ...args);
+  }
+  return asd;
+}
+
+function a() {
+  console.log("a");
+}
+function b() {
+  console.log("b");
+}
+
+const aWithCount = decorator(a);
+
+console.log(aWithCount());
+console.log(aWithCount());
+console.log(aWithCount());
+
+console.log(aWithCount.count);
+
+function sum(a, b) {
+  console.log(this);
+  return a + b;
+}
+
+const sum1 = decorator(sum);
+console.log(sum1(3, 4));
+console.log(sum1(3, 5));
+console.log(sum1.count);
+
+const sum2 = decorator(sum);
+let o = {
+  asd: "asd",
+  sum2,
+};
+
+console.log(o.sum2(5, 8));
+console.log(o.sum2.count);
+const sum3 = decorator(sum)
+
+o.sum3 = sum3
+console.log(o.sum3());
 
