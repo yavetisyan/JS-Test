@@ -547,53 +547,170 @@
 
 //console.log(fn(num));
 
-function decorator(fn) {
-  function asd(...args) {
+//function decorator(fn) {
+//  function asd(...args) {
 
-    if (!asd.count) {
-      asd.count = 0;
-    }
-    asd.count++;
-    return fn.call(this, ...args);
-  }
-  return asd;
-}
+//    if (!asd.count) {
+//      asd.count = 0;
+//    }
+//    asd.count++;
+//    return fn.call(this, ...args);
+//  }
+//  return asd;
+//}
 
-function a() {
-  console.log("a");
-}
-function b() {
-  console.log("b");
-}
+//function a() {
+//  console.log("a");
+//}
+//function b() {
+//  console.log("b");
+//}
 
-const aWithCount = decorator(a);
+//const aWithCount = decorator(a);
 
-console.log(aWithCount());
-console.log(aWithCount());
-console.log(aWithCount());
+//console.log(aWithCount());
+//console.log(aWithCount());
+//console.log(aWithCount());
 
-console.log(aWithCount.count);
+//console.log(aWithCount.count);
 
-function sum(a, b) {
+//function sum(a, b) {
+//  console.log(this);
+//  return a + b;
+//}
+
+//const sum1 = decorator(sum);
+//console.log(sum1(3, 4));
+//console.log(sum1(3, 5));
+//console.log(sum1.count);
+
+//const sum2 = decorator(sum);
+//let o = {
+//  asd: "asd",
+//  sum2,
+//};
+
+//console.log(o.sum2(5, 8));
+//console.log(o.sum2.count);
+//const sum3 = decorator(sum)
+
+//o.sum3 = sum3
+//console.log(o.sum3());
+
+//let a = 10;
+
+//function f1() {
+//  console.log("(global) a = " + a);
+//}
+
+////f1();
+
+//// ---------------------
+
+//function f2() {
+//  a = 33;
+//  console.log("(local) a = " + a);
+//}
+
+////f2();
+
+//// -----------------
+
+//function createStep(n = 0) {
+//  let count = n;
+
+//  return function () {
+//    count++;
+//    console.log(count);
+//  };
+//}
+
+////let step1 = createStep();
+////let step2 = createStep(200);
+
+////step1();
+////step1();
+////step2();
+////step1();
+////step1();
+////step2();
+
+////-----------------------------
+
+//function randomInteger(min, max) {
+//  let rand = min - 0.5 + Math.random() * (max - min + 1);
+//  return Math.round(rand);
+//}
+
+//function createBegger() {
+//  let s = 0;
+
+// return  function beggar() {
+//    s += randomInteger(0, 100);
+//    console.log(s);
+//    if (s >= 250) return;
+//    beggar();
+//  }
+//}
+
+//let begg1 = createBegger();
+//let begg2 = createBegger();
+//begg1();
+//console.log('------------');
+//begg2();
+
+//----apply, call,  bind-----------------
+
+let count = 0;
+
+let btn1 = document.querySelector(".b-1");
+let btn2 = document.querySelector(".b-2");
+let btn3 = document.querySelector(".b-3");
+let out3 = document.querySelector(".out-3");
+let out4 = document.querySelector(".out-4");
+
+function f1() {
+  console.log(count);
   console.log(this);
-  return a + b;
+  this.textContent = count;
+  count++;
 }
 
-const sum1 = decorator(sum);
-console.log(sum1(3, 4));
-console.log(sum1(3, 5));
-console.log(sum1.count);
+//btn1.addEventListener("click", f1);
 
-const sum2 = decorator(sum);
-let o = {
-  asd: "asd",
-  sum2,
-};
+//const f2 = () => {
+//  console.log(count);
+//  console.log(this);
+//  this.textContent = count;
+//  count++;
+//};
 
-console.log(o.sum2(5, 8));
-console.log(o.sum2.count);
-const sum3 = decorator(sum)
+//btn2.addEventListener("click", f2);
 
-o.sum3 = sum3
-console.log(o.sum3());
+//call
 
+//f1.call(btn1);
+
+document.querySelector(".b-1").addEventListener("click", () => {
+  f1.call(document.querySelector(".b-2"));
+});
+
+function f3(count) {
+  console.log(count);
+  console.log(this);
+  this.textContent = count;
+}
+
+btn3.addEventListener("click", () => {
+  count++;
+  f3.call(btn2, count);
+});
+
+function sum1(a, b) {
+  this.innerHTML = a + b;
+}
+
+btn2.addEventListener("click", () => {
+  sum1.call(out3, 37, 4);
+  sum1.apply(out4, [37, 4]);
+});
